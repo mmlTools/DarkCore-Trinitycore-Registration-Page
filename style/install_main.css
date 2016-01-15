@@ -1,0 +1,163 @@
+/*
+Powered by DarkCoreCMS
+Website: http://mmltools.com
+Author: Marco aka (Darksoke)
+*/
+
+body{
+    background: #f9f9f9;
+    margin: 0;
+    padding: 0;
+    font-family: 'Open Sans',Arial,"Helvetica Neue",Helvetica,sans-serif;
+    font-size: 14px;
+    color: #656363;
+    -webkit-transition: all 1s ease;
+    -moz-transition: all 1s ease;
+    -o-transition: all 1s ease;
+    transition: all 1s ease;
+}
+
+a:link {
+    text-decoration: none;
+}
+a:visited {
+    text-decoration: none;
+}
+a:hover {
+    text-decoration: none;
+}
+a:active {
+    text-decoration: none;
+}
+ul {
+    padding: 0;
+    list-style-type: none;
+}
+
+#install-header{
+    margin-bottom: 55px;
+    color: #929191;
+}
+#install-content{
+    width: 800px;
+    margin: auto;
+    margin-top: 50px;
+    margin-bottom: 100px;
+    background: #FFFFFF;
+    padding: 25px;
+    border-radius: 4px;
+    border: 2px solid #EFECEC;
+    text-align: center;
+    box-shadow: 3px 3px 30px #BFBEBE;
+    color: #929191;
+}
+
+#install-content a:link {color:#17BDD8}
+#install-content a:visited {color:#17BDD8}
+#install-content a:hover {color:#91F7F2}
+#install-content a:active {color:#17BDD8}
+
+#install-content .input{
+    display: inline-block;
+    vertical-align: top;
+    width: 400px;
+    padding: 5px;
+    border: 1px solid #CCC;
+    border-radius: 3px;
+    box-shadow: 3px 3px 10px #C3C1C1;
+    margin-left: 50px;
+}
+#install-content .textarea{
+    display: inline-block;
+    vertical-align: top;
+    width: 400px;
+    height: 80px;
+    max-width: 400px;
+    max-height: 80px;
+    padding: 5px;
+    border: 1px solid #CCC;
+    border-radius: 3px;
+    box-shadow: 3px 3px 10px #C3C1C1;
+    margin-left: 50px;
+}
+#install-content .submit{
+    padding: 10px 30px 10px 30px;
+    margin-top: 25px;
+    border: 2px solid #CCC;
+    background: #E4E3E3;
+    color: #989898;
+    box-shadow: 3px 3px 15px #E0DCDC;
+    -webkit-transition: all 0.5s ease;
+    -moz-transition: all 0.5s ease;
+    -o-transition: all 0.5s ease;
+    transition: all 0.5s ease;
+
+}
+#install-content .submit:hover{
+    cursor:pointer;
+    border: 2px solid #29D7F3;
+    background: #17BDD8;
+    color: #91F7F2;
+}
+#install-content #line{
+    margin-bottom: 15px;
+}
+#install-content .text_lbl{
+    width:300px;
+    display: inline-block;
+    vertical-align: top;
+    padding-top: 5px;
+    text-align: left;
+    color: #B7B2B2;
+    -webkit-transition: all 0.2s ease;
+    -moz-transition: all 0.2s ease;
+    -o-transition: all 0.2s ease;
+    transition: all 0.2s ease;
+}
+#install-content .text_lbl:hover{
+    color: #000;
+    cursor: pointer;
+}
+#install-content .text_lbl .title{
+    font-weight: bold;
+}
+#install-content .text_lbl .desc{
+    font-weight: normal;
+    font-size: 12px;
+}
+#install-footer{
+    margin-top: 75px;
+    color: #929191;
+}
+#notification{
+    width: 500px;
+    height: 40px;
+    padding: 10px 55px 10px 55px;
+    margin: auto;
+    margin-top: 100px;
+    background: #FFF;
+    border: 2px solid #CCCCCC;
+    text-align: center;
+    font-size: 12px;
+    font-weight: bold;
+    color: #8A8888;
+    box-shadow: 3px 4px 20px #cccccc;
+}
+#notification .delete{
+    padding: 10px 30px 10px 30px;
+    margin-top: 25px;
+    border: 2px solid #CCC;
+    background: #E4E3E3;
+    color: #989898;
+    box-shadow: 3px 3px 15px #E0DCDC;
+    -webkit-transition: all 0.2s ease;
+    -moz-transition: all 0.2s ease;
+    -o-transition: all 0.2s ease;
+    transition: all 0.2s ease;
+}
+#notification .delete:hover {
+    cursor:pointer;
+    border: 2px solid #29D7F3;
+    background: #17BDD8;
+    color: #91F7F2;
+}

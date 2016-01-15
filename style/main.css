@@ -1,0 +1,172 @@
+/*
+Powered by DarkCoreCMS
+Website: http://mmltools.com
+Author: Marco aka (Darksoke)
+*/
+body{
+    background: #f9f9f9;
+    margin: 0;
+    padding: 0;
+    font-family: 'Open Sans',Arial,"Helvetica Neue",Helvetica,sans-serif;
+    font-size: 14px;
+    color: #656363;
+}
+
+a:link {
+    text-decoration: none;
+}
+a:visited {
+    text-decoration: none;
+}
+a:hover {
+    text-decoration: none;
+}
+a:active {
+    text-decoration: none;
+}
+ul {
+    padding: 0;
+    list-style-type: none;
+}
+#content{
+    background-position: top;
+    width:800px;
+    margin:auto;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    color: #929191;
+    border-radius: 4px;
+    border: 2px solid #EFECEC;
+    text-align: center;
+    box-shadow: 3px 3px 30px #BFBEBE;
+}
+#content a:link {color:#17BDD8}
+#content a:visited {color:#17BDD8}
+#content a:hover {color:#91F7F2}
+#content a:active {color:#17BDD8}
+
+#content #c_header{
+    width:800px;
+    height: 194px;
+    background: #FFFFFF url("images/bg.jpg") no-repeat;
+    border-bottom: 2px solid #EFECEC;
+}
+#content #c_header .c_title {
+    font-size: 65px;
+    padding-top: 55px;
+    color: #FBFAFA;
+    text-shadow: 1px 1px 30px #0C76A9,
+    1px 4px 30px #108FCC,
+    1px 6px 30px #29d7f3,
+    1px 8px 30px #91f7f2,
+    1px 10px 30px #65F5EE,
+    1px 12px 30px #71DAF1;
+}
+#content .middle{
+    width:400px;
+    display: inline-block;
+    vertical-align: top;
+    margin-top:25px;
+}
+
+#content .middle .input{
+    display: inline-block;
+    vertical-align: top;
+    margin-bottom: 15px;
+    width: 300px;
+    padding: 5px;
+    border: 1px solid #CCC;
+    border-radius: 3px;
+    box-shadow: 3px 3px 10px #C3C1C1;
+}
+#content .middle .submit{
+    padding: 10px 30px 10px 30px;
+    margin-top: 25px;
+    border: 2px solid #CCC;
+    background: #E4E3E3;
+    color: #989898;
+    margin-bottom:25px;
+    box-shadow: 3px 3px 15px #E0DCDC;
+    -webkit-transition: all 0.5s ease;
+    -moz-transition: all 0.5s ease;
+    -o-transition: all 0.5s ease;
+    transition: all 0.5s ease;
+
+}
+#content .middle .submit:hover{
+    cursor:pointer;
+    border: 2px solid #29D7F3;
+    background: #17BDD8;
+    color: #91F7F2;
+}
+
+#footer-line{
+    width: 600px;
+    margin: auto;
+    padding: 0px 100px 0px 100px;
+    text-align:center;
+    font-weight: normal;
+    font-size:12px;
+    color: #929191;
+}
+#footer-line a:link {color:#17BDD8}
+#footer-line a:visited {color:#17BDD8}
+#footer-line a:hover {color:#91F7F2}
+#footer-line a:active {color:#17BDD8}
+
+#desc-line .description {
+    font-size: 12px;
+    padding: 25px;
+    color: #666669;
+    font-weight: bold;
+    background: #efecec;
+}
+.robot{
+    display: inline-block;
+    vertical-align: top;
+    margin-left: 15px;
+    background: #34A2E4;
+    color: #65f5ee;
+    border: 1px solid #CCC;
+    padding: 5px;
+    width: 75px;
+    box-shadow: 3px 3px 10px #CCC;
+    border-radius: 4px;
+}
+#desc-line-err{
+    background: #F7D4D4;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+#notification{
+    width: 500px;
+    height: 50px;
+    padding: 10px 55px 10px 55px;
+    margin: auto;
+    margin-top: 100px;
+    background: #FFF;
+    border: 2px solid #CCCCCC;
+    text-align: center;
+    font-size: 12px;
+    font-weight: bold;
+    color: #8A8888;
+    box-shadow: 3px 4px 20px #cccccc;
+}
+#notification .button{
+    padding: 10px 30px 10px 30px;
+    margin-top: 25px;
+    border: 2px solid #CCC;
+    background: #E4E3E3;
+    color: #989898;
+    box-shadow: 3px 3px 15px #E0DCDC;
+    -webkit-transition: all 0.2s ease;
+    -moz-transition: all 0.2s ease;
+    -o-transition: all 0.2s ease;
+    transition: all 0.2s ease;
+}
+#notification .button:hover {
+    cursor:pointer;
+    border: 2px solid #29D7F3;
+    background: #17BDD8;
+    color: #91F7F2;
+}
