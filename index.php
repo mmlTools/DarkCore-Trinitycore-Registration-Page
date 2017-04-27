@@ -1,4 +1,4 @@
-<?php //if (file_exists("install.php")) echo "<script> window.location.href = 'install.php' </script>";
+<?php if (file_exists("install.php")) echo "<script> window.location.href = 'install.php' </script>";
 foreach (glob("engine/*.php") as $filename)
 {
     include $filename;
