@@ -4,7 +4,8 @@ Website: http://mmltools.com
 Author: Marco aka (Darksoke)
 */
 body{
-    background: #f9f9f9;
+    background: #fff url(images/bodybg.jpg) no-repeat;
+	background-position: top;
     margin: 0;
     padding: 0;
     font-family: 'Open Sans',Arial,"Helvetica Neue",Helvetica,sans-serif;

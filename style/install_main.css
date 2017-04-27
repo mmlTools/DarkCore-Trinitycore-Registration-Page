@@ -5,7 +5,8 @@ Author: Marco aka (Darksoke)
 */
 
 body{
-    background: #f9f9f9;
+    background: #fff url(images/bodybg.jpg) no-repeat;
+	background-position: top;
     margin: 0;
     padding: 0;
     font-family: 'Open Sans',Arial,"Helvetica Neue",Helvetica,sans-serif;
@@ -36,7 +37,7 @@ ul {
 
 #install-header{
     margin-bottom: 55px;
-    color: #929191;
+    color: #636262;
 }
 #install-content{
     width: 800px;
@@ -49,7 +50,7 @@ ul {
     border: 2px solid #EFECEC;
     text-align: center;
     box-shadow: 3px 3px 30px #BFBEBE;
-    color: #929191;
+    color: #636262;
 }
 
 #install-content a:link {color:#17BDD8}
@@ -108,7 +109,7 @@ ul {
     vertical-align: top;
     padding-top: 5px;
     text-align: left;
-    color: #B7B2B2;
+    color: #636262;
     -webkit-transition: all 0.2s ease;
     -moz-transition: all 0.2s ease;
     -o-transition: all 0.2s ease;
@@ -127,7 +128,7 @@ ul {
 }
 #install-footer{
     margin-top: 75px;
-    color: #929191;
+    color: #636262;
 }
 #notification{
     width: 500px;

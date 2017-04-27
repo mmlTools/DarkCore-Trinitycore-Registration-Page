@@ -38,7 +38,7 @@ Author: Marco aka (Darksoke)
     <div id="install-content">
         <div id="install-header">
             <h2>Trinitycore Registration Page Setup</h2>
-            <h5>The following informations can be changed later in the newly created file "engine/global_config.php"</h5>
+            <h5>On linux based machines make sure your user have write access to create the configuration file. The following informations can be changed later in the newly created file "engine/global_config.php"</h5>
             <?php if (isset($_POST['generate'])){ install_website($_POST['Title'],$_POST['Description'],$_POST['Keywords'], $_POST['Realmlist'], $_POST['db_ip'], $_POST['db_user'], $_POST['db_password'], $_POST['re_db_password'], $_POST['db_auth']); } ?>
         </div>
         <form method='post'  autocomplete='off' enctype='multipart/form-data'>
