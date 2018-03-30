@@ -1,99 +1,61 @@
-<?php
+<?php if (!defined("DARKCORECMS")) safe_redirect("");
 //--Powered by DarkCoreCMS
 //--Website: http://mmltools.com
-//--Author: Marco aka (Darksoke)
+//--Author: Max aka (Darksoke)
 
-function connect($ip, $user, $password, $database){
-    $con = mysqli_connect($ip, $user, $password, $database) or die('try again in some minutes, please');
-    if (!$con)
-        printf("Connect failed: %s\n", mysqli_connect_error());
-    //exit();
-    else
+class Register{
+    public $errors = array();
+    public function __construct(&$username, &$email, &$password, &$repassword)
+    {
+        $this->register_user($username, $email, $password, $repassword);
+    }
+    private function connect(){
+        global $configuration;
+        $con = mysqli_connect($configuration['ipDB'], $configuration['userDB'], $configuration['passwordDB'], $configuration['authDB']);
+        if (!$con) {
+            printf("Connect failed: %s\n", mysqli_connect_error());
+            exit();
+        }
         return $con;
-}
-function encrypt($username, $password)
-{
-    $password = sha1(strtoupper($username) . ":" . strtoupper($password));
-    $password = strtoupper($password);
-    return $password;
-}
-function check_user_exist($username){
-    global $db_ip, $db_user, $db_password, $db_auth;
-    $con = connect($db_ip, $db_user, $db_password, $db_auth);
-    $stmt = $con->prepare("SELECT * FROM account WHERE `username`=?");
-    $stmt->bind_param("s", $username);
-    $stmt->execute();
-    $stmt->store_result();
-    return $stmt->num_rows;
-    $stmt->close();
-    $con->close();
-}
-function check_email_exist($email){
-    global $db_ip, $db_user, $db_password, $db_auth;
-    $con = connect($db_ip, $db_user, $db_password, $db_auth);
-    $stmt = $con->prepare("SELECT * FROM account WHERE `email`=?");
-    $stmt->bind_param("s",$email);
-    $stmt->execute();
-    $stmt->store_result();
-    return $stmt->num_rows;
-    $stmt->close();
-    $con->close();
-}
-function validate_email($email){
-    if (strlen($email) > 30){
-        return false;
     }
-    else
-        return filter_var($email, FILTER_VALIDATE_EMAIL);
-}
-function clean($string) {
-    $string = str_replace(' ', '-', $string); // Replaces all spaces with hyphens.
-
-    return preg_replace('/[^A-Za-z0-9\-]/', '', $string); // Removes special chars.
-}
-function register_user($username, $email, $password, $repassword,  $humtst = 0, $total = 0){
-    if ($password != $repassword)
-        echo "<font color='#ff0000;'>Passwords does not match <br></font>";
-    else
-        $new_password = encrypt($username,$password);
-
-    $sql = "INSERT INTO `account` (`username`, `sha_pass_hash`, `email`) VALUES (?,?,?)";
-    global $db_ip, $db_user, $db_password, $db_auth;
-    $con = connect($db_ip, $db_user, $db_password, $db_auth);
-    if (check_user_exist($username) > 0)
-        echo "<font color='#ff0000;'>This username is already in use<br></font>";
-    if (check_email_exist($email) > 0)
-        echo "<font color='#ff0000;'>This email is already in use<br></font>";
-    if (validate_email($email) == false)
-        echo "<font color='#ff0000;'>This email is not valid, using a valid email will help us to aid you in case of a problem related to your account<br></font>";
-    if ($total > 0) {
-        if ($humtst != $total) {
-            echo "<font color='#ff0000;'>Human verification failed <br></font>";
-        }
-        else {
-            if (check_user_exist($username) == 0 && check_email_exist($email) == 0) {
-                if ($stmt = $con->prepare($sql)) {
-                    $stmt->bind_param("sss", $username, $new_password, $email);
-                    $stmt->execute();
-                    $stmt->close();
-                    echo "<script type='text/javascript'>window.location.href = '?success=$username';</script>";
-                }
-            }
-            else
-                echo "<font color='#ff0000;'>Please fix the errors and try again</font>";
-        }
-    }
-    else {
-        if (check_user_exist($username) == 0 && check_email_exist($email) == 0 && validate_email($email) != false) {
-            if ($stmt = $con->prepare($sql)) {
-                $stmt->bind_param("sss", $username, $new_password, $email);
+    private function register_user($username, $email, $password, $repassword){
+        if ($password != $repassword)
+            array_push($this->errors, "Passwords does not match");
+        if($this->check_user_exist($username))
+            array_push($this->errors, "Username is already in use");
+        if($this->check_email_exist($email) || validate_email($email))
+            array_push($this->errors, "The following email is already in use or is not valid");
+        if(empty($this->errors)) {
+            $password = encrypt($username, $password);
+            $sql = "INSERT INTO `account` (`username`, `sha_pass_hash`, `email`) VALUES (?,?,?)";
+            if ($stmt = $this->connect()->prepare($sql)) {
+                $stmt->bind_param("sss", $username, $password, $email);
                 $stmt->execute();
                 $stmt->close();
-                echo "<script type='text/javascript'>window.location.href = '?success=$username';</script>";
+                safe_redirect("?success={$username}");
             }
         }
-        else
-            echo "<font color='#ff0000;'>Please fix the errors and try again</font>";
     }
-    $con->close();
+    private function check_user_exist($username){
+        $sql = "SELECT * FROM account WHERE `username`=?";
+        if ($stmt = $this->connect()->prepare($sql)) {
+            $stmt->bind_param("s", $username);
+            $stmt->execute();
+            $result = $stmt->get_result();
+            if($result)
+                return true;
+        }
+        return false;
+    }
+    function check_email_exist($email){
+        $sql = "SELECT * FROM account WHERE `email`=?";
+        if ($stmt = $this->connect()->prepare($sql)) {
+            $stmt->bind_param("s", $email);
+            $stmt->execute();
+            $result = $stmt->get_result();
+            if($result)
+                return true;
+        }
+        return false;
+    }
 }
